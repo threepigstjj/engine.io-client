@@ -1,7 +1,7 @@
 export const globalThisShim = (() => {
-  if (typeof self !== "undefined") {
+  if (self instanceof Window) {
     return self;
-  } else if (typeof window !== "undefined") {
+  } else if (window instanceof Window) {
     return window;
   } else {
     return Function("return this")();
